@@ -1,0 +1,92 @@
+import { useState } from "react";
+import { Menu, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import logo from "@/assets/cohby-logo.png";
+
+const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const navLinks = [
+    { name: "Home", href: "#home" },
+    { name: "What We Do", href: "#destinations" },
+    { name: "Programs", href: "#courses" },
+    { name: "About Us", href: "#about" },
+    { name: "Contact", href: "#contact" },
+  ];
+
+  return (
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border shadow-custom-sm">
+      <div className="container mx-auto px-4">
+        <div className="flex items-center justify-between h-20">
+          {/* Logo */}
+          <a href="#home" className="flex items-center space-x-2 group">
+            <img 
+              src={logo} 
+              alt="COHBY Consult Logo" 
+              className="h-16 w-auto transition-transform duration-300 group-hover:scale-105"
+            />
+          </a>
+
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center space-x-1">
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                className="px-4 py-2 text-foreground font-medium hover:text-primary transition-colors duration-200 relative group"
+              >
+                {link.name}
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-secondary group-hover:w-full transition-all duration-300" />
+              </a>
+            ))}
+            <Button 
+              asChild 
+              className="ml-4 bg-gradient-cta hover:shadow-custom-glow transition-all duration-300 font-heading font-semibold"
+            >
+              <a href="https://forms.gle/k4AKCwGpcQhsrxae8" target="_blank" rel="noopener noreferrer">
+                Register Now
+              </a>
+            </Button>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="md:hidden p-2 rounded-lg hover:bg-muted transition-colors"
+            aria-label="Toggle menu"
+          >
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
+
+        {/* Mobile Navigation */}
+        {isOpen && (
+          <div className="md:hidden py-4 animate-fade-in">
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                onClick={() => setIsOpen(false)}
+                className="block px-4 py-3 text-foreground font-medium hover:bg-muted rounded-lg transition-colors"
+              >
+                {link.name}
+              </a>
+            ))}
+            <div className="px-4 pt-3">
+              <Button 
+                asChild 
+                className="w-full bg-gradient-cta font-heading font-semibold"
+              >
+                <a href="https://forms.gle/k4AKCwGpcQhsrxae8" target="_blank" rel="noopener noreferrer">
+                  Register Now
+                </a>
+              </Button>
+            </div>
+          </div>
+        )}
+      </div>
+    </nav>
+  );
+};
+
+export default Navbar;
