@@ -10,32 +10,38 @@ const Index = () => {
     {
       country: "USA",
       description: "We Work With Universities Across 17 States",
-      imageUrl: "https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=800&q=80"
+      imageUrl: "https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=800&q=80",
+      link: "/study-in-usa"
     },
     {
       country: "Austria",
       description: "Unlocking World-Class Education and Cultural Exploration",
-      imageUrl: "https://images.unsplash.com/photo-1516550893923-42d28e5677af?w=800&q=80"
+      imageUrl: "https://images.unsplash.com/photo-1516550893923-42d28e5677af?w=800&q=80",
+      link: "/study-in-austria"
     },
     {
       country: "United Kingdom",
       description: "Let Us Assist You With Your Desired University in England, Scotland, Wales and Northern Ireland",
-      imageUrl: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=800&q=80"
+      imageUrl: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=800&q=80",
+      link: "/study-in-uk"
     },
     {
       country: "Denmark",
       description: "Your Gateway to Academic Excellence and European Adventure",
-      imageUrl: "https://images.unsplash.com/photo-1513622470522-26c3c8a854bc?w=800&q=80"
+      imageUrl: "https://images.unsplash.com/photo-1513622470522-26c3c8a854bc?w=800&q=80",
+      link: "/study-in-denmark"
     },
     {
       country: "Canada",
       description: "With Over 20 Top Universities, We Are Delighted To Make Your Canadian Dream A Reality",
-      imageUrl: "https://images.unsplash.com/photo-1503614472-8c93d56e92ce?w=800&q=80"
+      imageUrl: "https://images.unsplash.com/photo-1503614472-8c93d56e92ce?w=800&q=80",
+      link: "/study-in-canada"
     },
     {
       country: "Finland",
       description: "Home to Prestigious Universities, We're Here to Transform Your Aspirations into Reality",
-      imageUrl: "https://images.unsplash.com/photo-1564507592333-c60657eea523?w=800&q=80"
+      imageUrl: "https://images.unsplash.com/photo-1564507592333-c60657eea523?w=800&q=80",
+      link: "/study-in-finland"
     }
   ];
 

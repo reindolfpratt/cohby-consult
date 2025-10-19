@@ -1,5 +1,6 @@
 import { BookOpen } from "lucide-react";
 import { Card } from "@/components/ui/card";
+import { Link } from "react-router-dom";
 
 interface CourseCardProps {
   title: string;
@@ -8,7 +9,8 @@ interface CourseCardProps {
 
 const CourseCard = ({ title, imageUrl }: CourseCardProps) => {
   return (
-    <Card className="group overflow-hidden border-border hover:border-primary transition-all duration-300 hover:shadow-custom-md hover:scale-105 bg-gradient-card cursor-pointer">
+    <Link to="/programs">
+      <Card className="group overflow-hidden border-border hover:border-primary transition-all duration-300 hover:shadow-custom-md hover:scale-105 bg-gradient-card cursor-pointer">
       <div className="relative h-48 overflow-hidden">
         <img
           src={imageUrl}
@@ -26,6 +28,7 @@ const CourseCard = ({ title, imageUrl }: CourseCardProps) => {
         </h4>
       </div>
     </Card>
+    </Link>
   );
 };
 

@@ -1,13 +1,15 @@
 import { ArrowRight } from "lucide-react";
 import { Card } from "@/components/ui/card";
+import { Link } from "react-router-dom";
 
 interface DestinationCardProps {
   country: string;
   description: string;
   imageUrl: string;
+  link: string;
 }
 
-const DestinationCard = ({ country, description, imageUrl }: DestinationCardProps) => {
+const DestinationCard = ({ country, description, imageUrl, link }: DestinationCardProps) => {
   return (
     <Card className="group overflow-hidden border-border hover:border-secondary transition-all duration-300 hover:shadow-custom-lg hover:-translate-y-1 bg-gradient-card">
       <div className="relative h-56 overflow-hidden">
@@ -25,10 +27,10 @@ const DestinationCard = ({ country, description, imageUrl }: DestinationCardProp
         <p className="text-muted-foreground mb-4 line-clamp-2">
           {description}
         </p>
-        <button className="inline-flex items-center text-secondary font-heading font-semibold group/btn hover:gap-2 transition-all duration-300">
+        <Link to={link} className="inline-flex items-center text-secondary font-heading font-semibold group/btn hover:gap-2 transition-all duration-300">
           Learn More
           <ArrowRight className="ml-1 w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-        </button>
+        </Link>
       </div>
     </Card>
   );
