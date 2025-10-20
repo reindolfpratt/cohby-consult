@@ -1,11 +1,14 @@
+import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import DestinationCard from "@/components/DestinationCard";
 import CourseCard from "@/components/CourseCard";
 import Footer from "@/components/Footer";
+import FormDialog from "@/components/FormDialog";
 import { Button } from "@/components/ui/button";
 
 const Index = () => {
+  const [isFormOpen, setIsFormOpen] = useState(false);
   const destinations = [
     {
       country: "USA",
@@ -79,7 +82,8 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <Navbar />
-      <Hero />
+      <Hero onOpenForm={() => setIsFormOpen(true)} />
+      <FormDialog open={isFormOpen} onOpenChange={setIsFormOpen} />
 
       {/* Destinations Section */}
       <section id="destinations" className="py-20 bg-muted/30">
@@ -146,13 +150,11 @@ const Index = () => {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-scale-in">
             <Button 
-              asChild 
+              onClick={() => setIsFormOpen(true)}
               size="lg" 
-              className="bg-gradient-cta hover:shadow-custom-glow transition-all duration-300 font-heading font-bold text-base md:text-lg px-10 py-6"
+              className="bg-gradient-cta hover:shadow-custom-glow hover:scale-105 transition-all duration-300 font-heading font-bold text-base md:text-lg px-10 py-6"
             >
-              <a href="https://docs.google.com/forms/d/e/1FAIpQLSfmG24HFqsX_i7AmRblzZukkupGTxxpGYei833-BYmOvxYnlA/viewform" target="_blank" rel="noopener noreferrer">
-                Apply Now
-              </a>
+              Apply Now
             </Button>
             <Button 
               asChild 
