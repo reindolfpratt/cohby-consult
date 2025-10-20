@@ -1,12 +1,17 @@
+import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import FormDialog from "@/components/FormDialog";
 import { Button } from "@/components/ui/button";
 import { GraduationCap, Globe, Lightbulb, Calendar } from "lucide-react";
 
 const StudyInFinland = () => {
+  const [isFormOpen, setIsFormOpen] = useState(false);
+  
   return (
     <div className="min-h-screen">
-      <Navbar />
+      <Navbar onOpenForm={() => setIsFormOpen(true)} />
+      <FormDialog open={isFormOpen} onOpenChange={setIsFormOpen} />
       
       {/* Hero Section */}
       <section className="relative py-20 bg-gradient-hero overflow-hidden">
@@ -149,13 +154,11 @@ const StudyInFinland = () => {
                     Let Cohby Consult help you transform your aspirations into reality in Finland.
                   </p>
                   <Button 
-                    asChild 
+                    onClick={() => setIsFormOpen(true)}
                     size="lg" 
                     className="bg-gradient-cta hover:shadow-custom-glow transition-all duration-300 font-heading font-bold text-base md:text-lg px-10 py-6"
                   >
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfmG24HFqsX_i7AmRblzZukkupGTxxpGYei833-BYmOvxYnlA/viewform" target="_blank" rel="noopener noreferrer">
-                      Apply Now
-                    </a>
+                    Apply Now
                   </Button>
                 </div>
               </div>

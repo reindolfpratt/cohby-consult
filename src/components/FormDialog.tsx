@@ -18,7 +18,6 @@ const FormDialog = ({ open, onOpenChange }: FormDialogProps) => {
           <iframe
             id="JotFormIFrame-252916583922061"
             title="STUDY ABROAD - APPLICATION FORM"
-            onLoad={() => window.parent.scrollTo(0, 0)}
             allowTransparency={true}
             allow="geolocation; microphone; camera; fullscreen; payment"
             src="https://form.jotform.com/252916583922061"

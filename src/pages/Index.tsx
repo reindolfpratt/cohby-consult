@@ -81,7 +81,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen">
-      <Navbar />
+      <Navbar onOpenForm={() => setIsFormOpen(true)} />
       <Hero onOpenForm={() => setIsFormOpen(true)} />
       <FormDialog open={isFormOpen} onOpenChange={setIsFormOpen} />
 

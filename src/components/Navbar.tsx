@@ -1,17 +1,22 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/cohby-logo.png";
 
-const Navbar = () => {
+interface NavbarProps {
+  onOpenForm: () => void;
+}
+
+const Navbar = ({ onOpenForm }: NavbarProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
-    { name: "Home", href: "#home" },
-    { name: "What We Do", href: "#destinations" },
-    { name: "Programs", href: "#courses" },
-    { name: "About Us", href: "#about" },
-    { name: "Contact", href: "#contact" },
+    { name: "Home", href: "/" },
+    { name: "What We Do", href: "/#destinations" },
+    { name: "Programs", href: "/programs" },
+    { name: "About Us", href: "/#about" },
+    { name: "Contact", href: "/#contact" },
   ];
 
   return (
@@ -19,33 +24,31 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <a href="#home" className="flex items-center space-x-2 group">
+          <Link to="/" className="flex items-center space-x-2 group">
             <img 
               src={logo} 
               alt="COHBY Consult Logo" 
               className="h-16 w-auto transition-transform duration-300 group-hover:scale-105"
             />
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-1">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.name}
-                href={link.href}
+                to={link.href}
                 className="px-4 py-2 text-foreground font-medium hover:text-primary transition-colors duration-200 relative group"
               >
                 {link.name}
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-secondary group-hover:w-full transition-all duration-300" />
-              </a>
+              </Link>
             ))}
             <Button 
-              asChild 
+              onClick={onOpenForm}
               className="ml-4 bg-gradient-cta hover:shadow-custom-glow transition-all duration-300 font-heading font-semibold"
             >
-              <a href="https://forms.gle/k4AKCwGpcQhsrxae8" target="_blank" rel="noopener noreferrer">
-                Register Now
-              </a>
+              Register Now
             </Button>
           </div>
 
@@ -63,23 +66,24 @@ const Navbar = () => {
         {isOpen && (
           <div className="md:hidden py-4 animate-fade-in">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.name}
-                href={link.href}
+                to={link.href}
                 onClick={() => setIsOpen(false)}
                 className="block px-4 py-3 text-foreground font-medium hover:bg-muted rounded-lg transition-colors"
               >
                 {link.name}
-              </a>
+              </Link>
             ))}
             <div className="px-4 pt-3">
               <Button 
-                asChild 
+                onClick={() => {
+                  onOpenForm();
+                  setIsOpen(false);
+                }}
                 className="w-full bg-gradient-cta font-heading font-semibold"
               >
-                <a href="https://forms.gle/k4AKCwGpcQhsrxae8" target="_blank" rel="noopener noreferrer">
-                  Register Now
-                </a>
+                Register Now
               </Button>
             </div>
           </div>
