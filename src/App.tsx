@@ -23,7 +23,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
+      <BrowserRouter basename="/cohby-consult/">
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/what-we-do" element={<WhatWeDo />} />
