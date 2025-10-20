@@ -12,6 +12,9 @@ import StudyInUK from "./pages/StudyInUK";
 import StudyInCanada from "./pages/StudyInCanada";
 import StudyInFinland from "./pages/StudyInFinland";
 import Programs from "./pages/Programs";
+import WhatWeDo from "./pages/WhatWeDo";
+import AboutUs from "./pages/AboutUs";
+import ContactUs from "./pages/ContactUs";
 
 const queryClient = new QueryClient();
 
@@ -23,6 +26,9 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/what-we-do" element={<WhatWeDo />} />
+          <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/contact-us" element={<ContactUs />} />
           <Route path="/study-in-denmark" element={<StudyInDenmark />} />
           <Route path="/study-in-austria" element={<StudyInAustria />} />
           <Route path="/study-in-usa" element={<StudyInUSA />} />

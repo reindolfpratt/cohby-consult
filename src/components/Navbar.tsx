@@ -13,10 +13,10 @@ const Navbar = ({ onOpenForm }: NavbarProps) => {
 
   const navLinks = [
     { name: "Home", href: "/" },
-    { name: "What We Do", href: "/#destinations" },
+    { name: "What We Do", href: "/what-we-do" },
     { name: "Programs", href: "/programs" },
-    { name: "About Us", href: "/#about" },
-    { name: "Contact", href: "/#contact" },
+    { name: "About Us", href: "/about-us" },
+    { name: "Contact", href: "/contact-us" },
   ];
 
   return (

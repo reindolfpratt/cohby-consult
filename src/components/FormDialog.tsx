@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 
 interface FormDialogProps {
@@ -6,6 +7,22 @@ interface FormDialogProps {
 }
 
 const FormDialog = ({ open, onOpenChange }: FormDialogProps) => {
+  useEffect(() => {
+    if (open) {
+      // Load JotForm script when dialog opens
+      const script = document.createElement('script');
+      script.src = 'https://form.jotform.com/jsform/252916583922061';
+      script.type = 'text/javascript';
+      script.id = 'jotform-script';
+      
+      const container = document.getElementById('jotform-container');
+      if (container) {
+        container.innerHTML = '';
+        container.appendChild(script);
+      }
+    }
+  }, [open]);
+
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="max-w-4xl max-h-[90vh] overflow-hidden p-0">
@@ -14,17 +31,11 @@ const FormDialog = ({ open, onOpenChange }: FormDialogProps) => {
             Study Abroad - Application Form
           </DialogTitle>
         </DialogHeader>
-        <div className="w-full overflow-y-auto" style={{ height: "70vh" }}>
-          <iframe
-            id="JotFormIFrame-252916583922061"
-            title="STUDY ABROAD - APPLICATION FORM"
-            allowTransparency={true}
-            allow="geolocation; microphone; camera; fullscreen; payment"
-            src="https://form.jotform.com/252916583922061"
-            style={{ minWidth: "100%", maxWidth: "100%", height: "100%", border: "none" }}
-            scrolling="no"
-          />
-        </div>
+        <div 
+          id="jotform-container"
+          className="w-full overflow-y-auto" 
+          style={{ height: "70vh" }}
+        />
       </DialogContent>
     </Dialog>
   );
