@@ -8,21 +8,26 @@ interface FormDialogProps {
 
 const FormDialog = ({ open, onOpenChange }: FormDialogProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const scriptLoadedRef = useRef(false);
 
   useEffect(() => {
-    if (open && containerRef.current && !scriptLoadedRef.current) {
-      // Clear any existing content
+    if (open && containerRef.current) {
+      // Clear any existing content first
       containerRef.current.innerHTML = '';
       
       // Create and add the JotForm script
       const script = document.createElement('script');
       script.type = 'text/javascript';
       script.src = 'https://form.jotform.com/jsform/252916583922061';
-      script.async = true;
       
+      // Append script to container
       containerRef.current.appendChild(script);
-      scriptLoadedRef.current = true;
+      
+      // Cleanup function to remove script when dialog closes
+      return () => {
+        if (containerRef.current) {
+          containerRef.current.innerHTML = '';
+        }
+      };
     }
   }, [open]);
 
