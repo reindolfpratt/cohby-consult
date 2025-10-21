@@ -51,31 +51,38 @@ const Index = () => {
   const courses = [
     {
       title: "Business Administration and Management",
-      imageUrl: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=80"
+      imageUrl: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=80",
+      link: "/programs#business-administration"
     },
     {
       title: "Nursing, Midwifery",
-      imageUrl: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&q=80"
+      imageUrl: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&q=80",
+      link: "/programs#nursing-midwifery"
     },
     {
       title: "Health and Social Care",
-      imageUrl: "https://images.unsplash.com/photo-1559757175-5700dde675bc?w=600&q=80"
+      imageUrl: "https://images.unsplash.com/photo-1559757175-5700dde675bc?w=600&q=80",
+      link: "/programs#health-social-care"
     },
     {
       title: "Software Development, AI & Machine Learning",
-      imageUrl: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=600&q=80"
+      imageUrl: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=600&q=80",
+      link: "/programs#software-ai-ml"
     },
     {
       title: "Business Events Management and Project Management",
-      imageUrl: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&q=80"
+      imageUrl: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&q=80",
+      link: "/programs#events-project-management"
     },
     {
       title: "Business Law, Paralegal, Law, Psychology and Police Studies",
-      imageUrl: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=600&q=80"
+      imageUrl: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=600&q=80",
+      link: "/programs#law-psychology-police"
     },
     {
       title: "Architecture, Building Technician and Engineers",
-      imageUrl: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&q=80"
+      imageUrl: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&q=80",
+      link: "/programs#architecture-engineering"
     }
   ];
 
@@ -162,7 +169,7 @@ const Index = () => {
               variant="outline" 
               className="bg-primary-foreground/10 backdrop-blur-sm border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/20 font-heading font-semibold text-base md:text-lg px-10 py-6"
             >
-              <a href="#contact">
+              <a href="/contact-us">
                 Contact Us
               </a>
             </Button>

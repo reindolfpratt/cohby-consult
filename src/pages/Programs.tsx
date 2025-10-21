@@ -10,41 +10,49 @@ const Programs = () => {
   
   const programs = [
     {
+      id: "business-administration",
       title: "Business Administration",
       career: "A degree in Business Administration can open doors to careers in management, finance, marketing, and entrepreneurship. Graduates often become business analysts, managers, consultants, and entrepreneurs.",
       admission: "Typical requirements include a high school diploma or equivalent. For master's: transcripts, GMAT (if applicable) and letters of recommendation."
     },
     {
+      id: "engineering-programs",
       title: "Engineering Programs",
       career: "Engineering graduates work in a variety of industries, from aerospace to civil engineering. Opportunities include roles as mechanical engineers, electrical engineers, and software developers.",
       admission: "High school diploma with strong math and science background. For master's: Bachelor's in engineering or related field."
     },
     {
+      id: "nursing-midwifery",
       title: "Nursing & Midwifery",
       career: "Nursing professionals are in high demand globally. Career paths include registered nurse, nurse practitioner, midwife, healthcare administrator, and specialized clinical roles.",
       admission: "High school diploma with biology and chemistry. For advanced programs: RN license and relevant experience may be required."
     },
     {
+      id: "health-social-care",
       title: "Health and Social Care",
       career: "Graduates work in healthcare settings, social services, community health, and policy development. Roles include healthcare coordinator, social worker, and public health specialist.",
       admission: "High school diploma. For master's: Bachelor's degree in health sciences or related field."
     },
     {
+      id: "software-ai-ml",
       title: "Software Development, AI & Machine Learning",
       career: "Tech professionals work in software companies, startups, research institutions, and tech giants. Roles include software developer, AI engineer, data scientist, and machine learning specialist.",
       admission: "Strong background in mathematics and computer science. For master's: Bachelor's in computer science or related field."
     },
     {
+      id: "events-project-management",
       title: "Business Events Management and Project Management",
       career: "Graduates manage events, conferences, and projects across various industries. Career paths include event coordinator, project manager, operations manager, and business consultant.",
       admission: "High school diploma. For master's: Bachelor's degree and relevant work experience preferred."
     },
     {
+      id: "law-psychology-police",
       title: "Business Law, Paralegal, Law, Psychology and Police Studies",
       career: "Diverse career paths in legal services, law enforcement, counseling, and criminal justice. Roles include paralegal, lawyer, psychologist, law enforcement officer, and legal consultant.",
       admission: "High school diploma. Specific programs may require additional testing. For law school: Bachelor's degree and entrance exams."
     },
     {
+      id: "architecture-engineering",
       title: "Architecture, Building Technician and Engineers",
       career: "Professionals work in architecture firms, construction companies, and engineering consultancies. Roles include architect, building technician, structural engineer, and urban planner.",
       admission: "High school diploma with strong math and design skills. Portfolio may be required. For master's: Bachelor's in architecture or engineering."
@@ -94,8 +102,9 @@ const Programs = () => {
             <div className="space-y-8">
               {programs.map((program, index) => (
                 <div 
+                  id={program.id}
                   key={index} 
-                  className="animate-fade-in-up bg-gradient-card rounded-xl border border-border overflow-hidden hover:border-primary transition-all duration-300 hover:shadow-custom-lg"
+                  className="animate-fade-in-up bg-gradient-card rounded-xl border border-border overflow-hidden hover:border-primary transition-all duration-300 hover:shadow-custom-lg scroll-mt-24"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   <div className="p-8">

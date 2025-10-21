@@ -5,11 +5,12 @@ import { Link } from "react-router-dom";
 interface CourseCardProps {
   title: string;
   imageUrl: string;
+  link?: string;
 }
 
-const CourseCard = ({ title, imageUrl }: CourseCardProps) => {
+const CourseCard = ({ title, imageUrl, link = "/programs" }: CourseCardProps) => {
   return (
-    <Link to="/programs">
+    <Link to={link}>
       <Card className="group overflow-hidden border-border hover:border-primary transition-all duration-300 hover:shadow-custom-md hover:scale-105 bg-gradient-card cursor-pointer">
       <div className="relative h-48 overflow-hidden">
         <img

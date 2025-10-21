@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 
 interface FormDialogProps {
@@ -7,19 +7,22 @@ interface FormDialogProps {
 }
 
 const FormDialog = ({ open, onOpenChange }: FormDialogProps) => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const scriptLoadedRef = useRef(false);
+
   useEffect(() => {
-    if (open) {
-      // Load JotForm script when dialog opens
-      const script = document.createElement('script');
-      script.src = 'https://form.jotform.com/jsform/252916583922061';
-      script.type = 'text/javascript';
-      script.id = 'jotform-script';
+    if (open && containerRef.current && !scriptLoadedRef.current) {
+      // Clear any existing content
+      containerRef.current.innerHTML = '';
       
-      const container = document.getElementById('jotform-container');
-      if (container) {
-        container.innerHTML = '';
-        container.appendChild(script);
-      }
+      // Create and add the JotForm script
+      const script = document.createElement('script');
+      script.type = 'text/javascript';
+      script.src = 'https://form.jotform.com/jsform/252916583922061';
+      script.async = true;
+      
+      containerRef.current.appendChild(script);
+      scriptLoadedRef.current = true;
     }
   }, [open]);
 
@@ -32,8 +35,8 @@ const FormDialog = ({ open, onOpenChange }: FormDialogProps) => {
           </DialogTitle>
         </DialogHeader>
         <div 
-          id="jotform-container"
-          className="w-full overflow-y-auto" 
+          ref={containerRef}
+          className="w-full overflow-y-auto px-6 pb-6" 
           style={{ height: "70vh" }}
         />
       </DialogContent>
